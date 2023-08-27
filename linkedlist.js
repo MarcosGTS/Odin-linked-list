@@ -45,7 +45,11 @@ function Linkedlist() {
         size++;
     }
 
-    function prepend(value) {}
+    function prepend(value) {
+        let newNode = Node(value, head);
+        head = newNode;
+    }
+
     function getSize() {}
     function getHead() {}
     function getTail() {}
@@ -85,6 +89,10 @@ function Linkedlist() {
 let ll = Linkedlist();
 ll.append(1);
 ll.append(2);
+ll.append(3);
+
+ll.prepend(0);
+
 ll.append(3);
 
 console.log(ll.toString());
