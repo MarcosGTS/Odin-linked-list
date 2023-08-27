@@ -26,7 +26,7 @@ function Node(value = null, next = null) {
     }
 }
 
-function LinkedList() {
+function Linkedlist() {
     let head = null;
     let tail;
     let size = 0;
@@ -37,16 +37,15 @@ function LinkedList() {
         if (size == 0) {
             head = newNode;
             tail = newNode;
-            return;
+        } else {
+            tail.setNext(newNode);
+            tail = newNode;
         }
-        
-        tail.setNext(newNode);
-        tail = newNode;
 
         size++;
     }
 
-    function prepend(value {}
+    function prepend(value) {}
     function getSize() {}
     function getHead() {}
     function getTail() {}
@@ -54,7 +53,16 @@ function LinkedList() {
     function pop() {}
     function contains(value) {}
     function find(value) {}
-    function toString() {}
+
+    function toString() {
+        let string = "";
+        for (let node = head; node != null; node = node.getNext()) {
+            string += `(${node.getValue()}) -> ` 
+        }
+
+        return string + "NULL";
+    }
+
     function insertAt(value, index) {}
     function removeAt(index) {}
 
@@ -74,3 +82,9 @@ function LinkedList() {
     }
 }
 
+let ll = Linkedlist();
+ll.append(1);
+ll.append(2);
+ll.append(3);
+
+console.log(ll.toString());
