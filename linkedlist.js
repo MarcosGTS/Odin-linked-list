@@ -2,10 +2,21 @@ function Node(value = null, next = null) {
     let data = value;
     let nextNode = next;
 
-    function getValue() {}
-    function setValue(value) {}
-    function getNext() {}
-    function setNext(next) {}
+    function getValue() {
+        return data;
+    }
+
+    function setValue(value) {
+        data = value;
+    }
+
+    function getNext() {
+        return nextNode;
+    }
+
+    function setNext(next) {
+        nextNode = next;
+    }
 
     return {
         getValue,
