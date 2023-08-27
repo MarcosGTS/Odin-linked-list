@@ -125,7 +125,27 @@ function Linkedlist() {
         return string + "NULL";
     }
 
-    function insertAt(value, index) {}
+    function insertAt(value, index) {
+        if (index == 0) {
+            prepend(value);
+            return;
+        } 
+
+        if (index == (size - 1)) {
+            append(value);
+            return;
+        }
+
+        let target = at(index - 1);
+
+        if (target) {
+            const newNode = Node(value);
+            newNode.setNext(target.getNext());
+            target.setNext(newNode);
+            size++;
+        }
+    }
+
     function removeAt(index) {}
 
     return {
@@ -170,3 +190,11 @@ console.log(ll.contains(-1)); // false
 
 console.log(ll.find(2)); // 2
 console.log(ll.find(10)); // -1
+
+ll.insertAt(-10, 0);
+ll.insertAt(-99, ll.getSize() - 1);
+
+console.log(ll.toString());
+console.log(ll.getHead().getValue());
+console.log(ll.getTail().getValue());
+
