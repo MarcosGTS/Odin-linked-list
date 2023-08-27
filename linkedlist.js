@@ -146,7 +146,26 @@ function Linkedlist() {
         }
     }
 
-    function removeAt(index) {}
+    function removeAt(index) {
+        if (index == 0) {
+            head = head.getNext();
+            size--;
+            return;
+        } 
+
+        if (index == (size - 1)) {
+            pop();
+            return;
+        }
+
+        let target = at(index - 1);
+
+        if (target) {
+            let next = target.getNext();
+            target.setNext(next.getNext());
+            size--;
+        } 
+    }
 
     return {
         append,
@@ -195,6 +214,13 @@ ll.insertAt(-10, 0);
 ll.insertAt(-99, ll.getSize() - 1);
 
 console.log(ll.toString());
-console.log(ll.getHead().getValue());
-console.log(ll.getTail().getValue());
+console.log(ll.getHead().getValue()); // -10
+console.log(ll.getTail().getValue()); // -99
+
+ll.removeAt(0);
+ll.removeAt(ll.getSize() - 1);
+
+console.log(ll.toString());
+console.log(ll.getHead().getValue()); // 0
+console.log(ll.getTail().getValue()); // 3
 
