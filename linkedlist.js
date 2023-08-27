@@ -97,7 +97,14 @@ function Linkedlist() {
         return poped;
     }
 
-    function contains(value) {}
+    function contains(value) {
+        for (let node = head; node != null; node = node.getNext()) {
+            if (node.getValue() == value) return true;
+        }
+        
+        return false;
+    }
+
     function find(value) {}
 
     function toString() {
@@ -147,4 +154,8 @@ console.log(ll.at(0).getValue()); // 0
 console.log(ll.at(5)) // null
 console.log(ll.at(-1)); // null
 console.log(ll.pop().getValue()); // 3
+
+console.log(ll.toString());
+console.log(ll.contains(0));  // true
+console.log(ll.contains(-1)); // false
 
