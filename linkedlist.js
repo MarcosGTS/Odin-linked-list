@@ -28,7 +28,7 @@ function Node(value = null, next = null) {
 
 function Linkedlist() {
     let head = null;
-    let tail;
+    let tail = null;
     let size = 0;
     
     function append(value) {
@@ -75,7 +75,28 @@ function Linkedlist() {
         return node;
     }
 
-    function pop() {}
+    function pop() {
+
+        if (size == 0) return tail;
+
+        if (size == 1) {
+            head = null;
+        }
+
+        let node = head;
+        for (let i = 0; i < size - 2; i++) {
+            node = node.getNext();
+        }
+
+        let poped = tail;
+
+        node.setNext(null);
+        tail = node;
+        size--;
+
+        return poped;
+    }
+
     function contains(value) {}
     function find(value) {}
 
@@ -108,6 +129,9 @@ function Linkedlist() {
 }
 
 let ll = Linkedlist();
+
+console.log(ll.pop()) // null
+
 ll.append(1);
 ll.append(2);
 ll.append(3);
@@ -115,7 +139,6 @@ ll.prepend(0);
 ll.append(3);
 
 console.log(ll.toString());
-
 console.log(ll.getHead().getValue()) // 0
 console.log(ll.getTail().getValue()) // 3
 console.log(ll.getSize()) // 5
@@ -123,4 +146,5 @@ console.log(ll.at(4).getValue()); // 3
 console.log(ll.at(0).getValue()); // 0
 console.log(ll.at(5)) // null
 console.log(ll.at(-1)); // null
+console.log(ll.pop().getValue()); // 3
 
