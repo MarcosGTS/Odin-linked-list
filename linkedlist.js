@@ -64,7 +64,17 @@ function Linkedlist() {
         return tail;
     }
 
-    function at(index) {}
+    function at(index) {
+        if (index < 0 || index >= size) return null;
+        
+        let node = head;
+        for (let i = 0; i < index; i++) {
+            node = node.getNext();
+        }
+
+        return node;
+    }
+
     function pop() {}
     function contains(value) {}
     function find(value) {}
@@ -109,4 +119,8 @@ console.log(ll.toString());
 console.log(ll.getHead().getValue()) // 0
 console.log(ll.getTail().getValue()) // 3
 console.log(ll.getSize()) // 5
+console.log(ll.at(4).getValue()); // 3 
+console.log(ll.at(0).getValue()); // 0
+console.log(ll.at(5)) // null
+console.log(ll.at(-1)); // null
 
