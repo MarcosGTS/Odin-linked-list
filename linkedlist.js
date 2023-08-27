@@ -28,9 +28,24 @@ function Node(value = null, next = null) {
 
 function LinkedList() {
     let head = null;
+    let tail;
     let size = 0;
     
-    function append(value) {}
+    function append(value) {
+        let newNode = Node(value);
+
+        if (size == 0) {
+            head = newNode;
+            tail = newNode;
+            return;
+        }
+        
+        tail.setNext(newNode);
+        tail = newNode;
+
+        size++;
+    }
+
     function prepend(value {}
     function getSize() {}
     function getHead() {}
