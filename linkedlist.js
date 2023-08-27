@@ -48,11 +48,22 @@ function Linkedlist() {
     function prepend(value) {
         let newNode = Node(value, head);
         head = newNode;
+
+        size++;
     }
 
-    function getSize() {}
-    function getHead() {}
-    function getTail() {}
+    function getSize() {
+        return size;
+    }
+
+    function getHead() {
+        return head;
+    }
+
+    function getTail() {
+        return tail;
+    }
+
     function at(index) {}
     function pop() {}
     function contains(value) {}
@@ -73,9 +84,9 @@ function Linkedlist() {
     return {
         append,
         prepend,
-        size,
-        head,
-        tail,
+        getSize,
+        getHead,
+        getTail,
         at,
         pop,
         contains,
@@ -90,9 +101,12 @@ let ll = Linkedlist();
 ll.append(1);
 ll.append(2);
 ll.append(3);
-
 ll.prepend(0);
-
 ll.append(3);
 
 console.log(ll.toString());
+
+console.log(ll.getHead().getValue()) // 0
+console.log(ll.getTail().getValue()) // 3
+console.log(ll.getSize()) // 5
+
