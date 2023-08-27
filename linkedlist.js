@@ -105,7 +105,16 @@ function Linkedlist() {
         return false;
     }
 
-    function find(value) {}
+    function find(value) {
+        let index = 0;
+
+        for (let node = head; node != null; node = node.getNext()) {
+           if (node.getValue() == value) return index; 
+           index++;
+        }
+
+        return -1;
+    }
 
     function toString() {
         let string = "";
@@ -159,3 +168,5 @@ console.log(ll.toString());
 console.log(ll.contains(0));  // true
 console.log(ll.contains(-1)); // false
 
+console.log(ll.find(2)); // 2
+console.log(ll.find(10)); // -1
